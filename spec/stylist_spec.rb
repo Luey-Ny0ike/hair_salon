@@ -14,4 +14,12 @@ describe('Stylist') do
       expect(stylist.name).to(eq('mama nani'))
     end
   end
+
+  describe('#id') do
+    it('sets its ID when you save it') do
+      stylist = Stylist.new(name: 'mama nani', id: nil)
+      stylist.save
+      expect(stylist.id).to(be_an_instance_of(Fixnum))
+    end
+  end
 end
