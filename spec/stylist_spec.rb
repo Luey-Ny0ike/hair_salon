@@ -22,4 +22,12 @@ describe('Stylist') do
       expect(stylist.id).to(be_an_instance_of(Fixnum))
     end
   end
+
+  describe('#save') do
+    it('lets you save stylists to the database') do
+      stylist = Stylist.new(name: 'moringaschool stuff', id: nil)
+      stylist.save
+      expect(Stylist.all).to(eq([stylist]))
+    end
+  end
 end
