@@ -24,4 +24,10 @@ class Stylist
   define_method(:==) do |another_stylist|
     name.==(another_stylist.name).&(id.==(another_stylist.id))
   end
+
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name)
+    @id = id
+    DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
+  end
 end
