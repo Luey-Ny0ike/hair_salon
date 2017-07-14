@@ -1,8 +1,8 @@
 class Client
   attr_reader(:name, :id)
-  define_method(:initialize) do |attributes|
-    @name = attributes.fetch('name')
-    @id = attributes.fetch('id')
+  define_method(:initialize)do |attributes|
+    @name = attributes.fetch(:name)
+    @id = attributes.fetch(:id)
   end
 
   define_singleton_method(:all) do
@@ -14,5 +14,13 @@ class Client
       clients.push(Client.new(name: name, client_id: client_id))
     end
     clients
+  end
+
+  define_method(:save) do
+    DB.exec("INSERT INTO clients (name, client_id) VALUES ('#{@name}', #{@client_id});")
+  end
+
+  define_method(:==) do |another_client|
+    name.==(another_client.name).&(client_id.==(another_client.client_id))
   end
 end
