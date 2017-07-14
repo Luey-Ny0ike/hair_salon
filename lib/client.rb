@@ -1,8 +1,8 @@
 class Client
-  attr_reader(:name, :id)
+  attr_reader(:name, :stylist_id)
   define_method(:initialize)do |attributes|
     @name = attributes.fetch(:name)
-    @id = attributes.fetch(:id)
+    @stylist_id = attributes.fetch(:stylist_id)
   end
 
   define_singleton_method(:all) do
