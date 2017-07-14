@@ -44,4 +44,13 @@ describe('Stylist') do
       expect(stylist1).to(eq(stylist2))
     end
   end
+
+  describe('#update') do
+    it('lets you update stylists in the database') do
+      stlist = Stylist.new(name: 'mama nani', id: nil)
+      stlist.save
+      stlist.update(name: 'mama nana')
+      expect(stlist.name).to(eq('mama nana'))
+    end
+  end
 end
