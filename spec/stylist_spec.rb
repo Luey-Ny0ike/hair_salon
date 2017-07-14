@@ -63,6 +63,17 @@ describe('Stylist') do
       stylist.delete
       expect(Stylist.all).to(eq([stylist2]))
     end
+
+    it("deletes a stylist's clients from the database") do
+      stylist = Stylist.new(name: 'mama nani', id: nil)
+      stylist.save
+      client = Client.new(name: 'Latasha', stylists_id: stylist.id)
+      client.save
+      client2 = Client.new(name: 'Moses', stylists_id: stylist.id)
+      client2.save
+      stylist.delete
+      expect(Client.all).to(eq([]))
+    end
   end
 
   describe('.find') do
