@@ -33,6 +33,8 @@ class Stylist
 
   define_method(:delete) do
     DB.exec("DELETE FROM stylists WHERE id = #{id};")
+    # this is to delete the clients under a stylist
+    DB.exec("DELETE FROM clients WHERE stylist_id = #{id};")
   end
 
   define_singleton_method(:find) do |id|
