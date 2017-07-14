@@ -31,7 +31,7 @@ describe('Stylist') do
 
   describe('#save') do
     it('lets you save stylists to the database') do
-      stylist = Stylist.new(name: 'moringaschool stuff', id: nil)
+      stylist = Stylist.new(name: 'mama nani', id: nil)
       stylist.save
       expect(Stylist.all).to(eq([stylist]))
     end
