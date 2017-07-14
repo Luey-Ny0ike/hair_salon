@@ -36,4 +36,12 @@ describe('Stylist') do
       expect(Stylist.all).to(eq([stylist]))
     end
   end
+
+  describe('#==') do
+    it('is the same stylist if it has the same name') do
+      stylist1 = Stylist.new(name: 'moringaschool stuff', id: nil)
+      stylist2 = Stylist.new(name: 'moringaschool stuff', id: nil)
+      expect(stylist1).to(eq(stylist2))
+    end
+  end
 end
