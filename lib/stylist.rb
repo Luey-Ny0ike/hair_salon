@@ -42,4 +42,15 @@ class Stylist
     end
     found_stylist
   end
+# this is for the one to many relationship
+  define_method(:clients) do
+    list_clients = []
+    clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{id};")
+    clients.each do |client|
+      name = client.fetch('name')
+      stylist_id = clients.fetch('stylist_id').to_i
+      list_clients.push(Client.new(name: name, stylist_id: stylist_id))
+    end
+    list_clients
+  end
 end
