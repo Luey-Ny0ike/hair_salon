@@ -9,7 +9,7 @@ end
 
 describe('Client') do
   describe('.all') do
-    xit('starts off with no clients') do
+    it('starts off with no clients') do
       expect(Client.all).to(eq([]))
     end
   end
