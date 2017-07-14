@@ -23,6 +23,12 @@ describe('Stylist') do
     end
   end
 
+  describe('.all') do
+    it('starts off with no stylists') do
+      expect(Stylist.all).to(eq([]))
+    end
+  end
+
   describe('#save') do
     it('lets you save stylists to the database') do
       stylist = Stylist.new(name: 'moringaschool stuff', id: nil)
