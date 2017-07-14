@@ -34,4 +34,12 @@ class Stylist
   define_method(:delete) do
     DB.exec("DELETE FROM stylists WHERE id = #{id};")
   end
+
+  define_singleton_method(:find) do |id|
+    found_stylist = nil
+    Stylist.all.each do |stylist|
+      found_stylist = stylist if stylist.id.==(id)
+    end
+    found_stylist
+  end
 end
