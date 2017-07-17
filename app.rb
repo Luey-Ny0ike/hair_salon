@@ -42,3 +42,10 @@ get('/stylists/:id/edit') do
   @stylists = Stylist.find(params.fetch('id').to_i)
   erb(:stylist_edit)
 end
+
+patch('/stylists/:id') do
+  name = params.fetch('name')
+  @stylist = Stylist.find(params.fetch('id').to_i)
+  @stylist.update(name: name)
+  erb(:stylist)
+end
