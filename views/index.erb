@@ -20,3 +20,21 @@
 
     <button class="btn" type="submit">Add a styList</button>
   </form>
+
+
+  <p> Add client to any stylist:</p>
+
+  <form action="/clients" method="post">
+    <label for="stylist_id">Select a styList</label>
+    <select id='stylist_id' name='stylist_id' type='text' class="browser-default">
+      <% @stylists.each() do |stylist| %>
+        <option value="<%= stylist.id()%>"> <%= stylist.name() %> </option>
+      <% end %>
+    </select>
+
+
+    <label for="name">Name of the client:</label>
+    <input id="name" name="name" type="text">
+
+    <button class="btn" type="submit">Add client</button>
+  </form>
