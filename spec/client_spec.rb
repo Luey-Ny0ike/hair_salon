@@ -1,8 +1,9 @@
 require('spec_helper')
 
+describe('Client') do
 describe('#initialize') do
   it('is initialized with a name') do
-    client = Client.new(name: 'Brad Pitt', stylist_id: 1)
+    client = Client.new(name: 'Brad Pitt', stylist_id: nil, id: nil)
     expect(client).to(be_an_instance_of(Client))
   end
 end
@@ -17,6 +18,7 @@ describe('Client') do
   describe('#save') do
     it('adds a client to the array of saved clients') do
       test_client = Client.new(name: 'Mama nani', stylist_id: nil)
+      test_client = Client.new(name: 'Mama nani', stylist_id: 1)
       test_client.save
       expect(Client.all).to(eq([test_client]))
     end
