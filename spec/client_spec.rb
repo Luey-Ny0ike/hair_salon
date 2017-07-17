@@ -8,7 +8,6 @@ describe('#initialize') do
   end
 end
 
-describe('Client') do
   describe('.all') do
     it('starts off with no clients') do
       expect(Client.all).to(eq([]))
@@ -17,7 +16,6 @@ describe('Client') do
 
   describe('#save') do
     it('adds a client to the array of saved clients') do
-      test_client = Client.new(name: 'Mama nani', stylist_id: nil)
       test_client = Client.new(name: 'Mama nani', stylist_id: 1)
       test_client.save
       expect(Client.all).to(eq([test_client]))
@@ -39,9 +37,9 @@ describe('Client') do
   end
 
   describe('#==') do
-    xit('is the same client if he/she has the same name and id') do
-      client = Client.new(name: 'Latasha', id: nil)
-      client2 = Client.new(name: 'Latasha', id: nil)
+    it('is the same client if he/she has the same name and id') do
+      client = Client.new(name: 'Latasha', stylist_id: 1)
+      client2 = Client.new(name: 'Latasha', stylist_id: 4)
       expect(client).to(eq(client2))
     end
   end
