@@ -1,6 +1,7 @@
 require('rspec')
 require('pg')
 require('client')
+require('capybara')
 require('stylist')
 
 DB = PG.connect(dbname: 'hair_salon_test')
