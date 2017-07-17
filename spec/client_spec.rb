@@ -24,6 +24,20 @@ describe('Client') do
     end
   end
 
+  describe('#name')do
+    it('lets you read out the name')do
+      test_client = Client.new(name: 'Latasha', stylist_id: 1)
+      expect(test_client.name).to(eq('Latasha'))
+    end
+  end
+
+  describe('#stylist_id') do
+    it('lets you read the stylist ID out') do
+      test_client = Client.new(name: 'Latasha', stylist_id: 1)
+      expect(test_client.stylist_id).to(eq(1))
+    end
+  end
+
   describe('#==') do
     xit('is the same client if he/she has the same name and id') do
       client = Client.new(name: 'Latasha', id: nil)
